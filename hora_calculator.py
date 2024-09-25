@@ -1,10 +1,12 @@
-import tkinter as tk
+# install astral and geopy 
+
+import tkinter as tk #use to make gui of the app
 from tkinter import messagebox, ttk
-import zoneinfo
-from astral import LocationInfo
+import zoneinfo #convert UST into IST
+from astral import LocationInfo #to get the sunset and sunrise time of any location
 from astral.sun import sun
-from datetime import date, timedelta, datetime
-import geopy
+from datetime import date, timedelta, datetime #use to perform calculation on time
+import geopy # give the logitude and latitude of the given city
 
 #list of planet in definate order
 planetNames = [['Moon'],['Saturn'],['Jupiter'],['Mars'],['Sun'],['Venus'],['Mercury']]
