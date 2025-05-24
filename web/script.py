@@ -35,7 +35,7 @@ def validate_inputdata(date_text, city):
     try:
         date.fromisoformat(date_text) #show error if the date is not in correct format
         try:
-            loc = geopy.Nominatim(user_agent='hora calculater', scheme='http').geocode(city) #show error for invalid city name
+            loc = geopy.Nominatim(user_agent='hora calculater', scheme='https').geocode(city) #show error for invalid city name
             return True 
         except: 
             # messagebox.showerror("Invalid Date", "Please enter the valid city name or check your internet connection.")
