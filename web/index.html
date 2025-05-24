@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.6.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
+</head>
+
+<body>
+    <div id="body">
+        <label for="city">Enter city name:</label>
+        <input type="text" id="city" name="city" placeholder="">
+        <label for="date">Enter date:</label>
+        <input type="date" id="date" name="date">
+        <button type="" py-click="submit_date">Submit</button>
+        <div id="message-box"></div>
+    </div>
+
+    <div>
+        <table id="hora-chart">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Planets</th>
+                    <th>From</th>
+                    <th>To</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Index</td>
+                    <td>Planets</td>
+                    <td>From</td>
+                    <td>To</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="py" src="script.py" config="./pyscript.json"></script>
+</body>
+
+</html>
