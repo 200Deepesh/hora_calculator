@@ -53,7 +53,7 @@ def submit_date(event):
     print(input_date, city)
 
     if validate_inputdata(input_date, city):
-        loc = geopy.Nominatim(user_agent='hora calculater', scheme='http').geocode(city)
+        loc = geopy.Nominatim(user_agent='hora calculater', scheme='https').geocode(city)
 
         #specifing location
         city = LocationInfo(
