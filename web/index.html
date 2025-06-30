@@ -5,42 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.6.1/core.css">
-    <script type="module" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
+    <script type="module" id="python-script" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
 </head>
 
 <body>
-    <div id="body">
-        <label for="city">Enter city name:</label>
-        <input type="text" id="city" name="city" placeholder="">
-        <label for="date">Enter date:</label>
-        <input type="date" id="date" name="date">
-        <button type="" py-click="submit_date">Submit</button>
+    <nav>
+
+    </nav>
+    <div id="form-body">
+        <div class="input">
+            <label for="city">Location</label>
+            <input type="text" id="city" name="city" placeholder="city, state, country">
+        </div>
+        <div class="input">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date">
+        </div>
+        <button type="" py-click="submit_date" id="submit-btn">Submit</button>
         <div id="message-box"></div>
     </div>
 
-    <div>
-        <table id="hora-chart">
-            <thead>
-                <tr>
-                    <th>Index</th>
-                    <th>Planets</th>
-                    <th>From</th>
-                    <th>To</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Index</td>
-                    <td>Planets</td>
-                    <td>From</td>
-                    <td>To</td>
-                </tr>
-            </tbody>
-        </table>
+
+    <div id="main-body">
+        <div id="day">
+            <h3>
+                <img src="/assets/sun.png" alt="">
+                <span>Day Hora</span>
+            </h3>
+
+            <div class="time">
+                <div class="sunrise">
+                    <img src="assets/sunrise.png" alt="">
+                    <span>Sunrise at</span>
+                    <span id="sunrise-time" style="font-size: 0.75rem;">5:25:14</span>
+                </div>
+                <div class="sunset">
+                    <img src="assets/sunset.png" alt="">
+                    <span>Sunset at</span>
+                    <span id="sunset-time" style="font-size: 0.75rem;">18:25:31</span>
+                </div>
+            </div>
+
+
+            <table id="day-hora-chart">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Planets</th>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div id="night">
+            <h3>
+                <img src="/assets/moon.png" alt="">
+                <span>Night Hora</span>
+            </h3>
+
+            <div class="time">
+                <div class="sunset">
+                    <img src="assets/sunset.png" alt="">
+                    <span>Sunset at</span>
+                    <span id="sunset-time" style="font-size: 0.75rem;">18:25:31</span>
+                </div>
+                <div class="sunrise">
+                    <img src="assets/sunrise.png" alt="">
+                    <span>Sunrise at</span>
+                    <span id="sunrise-time" style="font-size: 0.75rem;">5:25:14</span>
+                </div>
+            </div>
+
+
+            <table id="night-hora-chart">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Planets</th>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <script type="py" src="script.py" config="./pyscript.json"></script>
+    <script type="py" src="script.py" config="./pyscript.json" defer></script>
 </body>
 
 </html>

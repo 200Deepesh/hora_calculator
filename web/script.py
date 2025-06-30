@@ -1,8 +1,6 @@
-from pyscript import display # type: ignore
 from pyscript import document # type: ignore
 
 # install astral and geopy 
-
 # import tkinter as tk #use to make gui of the app
 # from tkinter import messagebox, ttk
 import zoneinfo #convert UST into IST
@@ -15,13 +13,14 @@ import pyodide_http # type: ignore
 pyodide_http.patch_all()  # Patch urllib3 and requests
 
 
-
 #list of planet in definate order
 planetNames = [['Moon'],['Saturn'],['Jupiter'],['Mars'],['Sun'],['Venus'],['Mercury']]
 
-hc = [] #empty list for hora chart
+dayHoraList = []
+nightHoraList = []
+hc = [dayHoraList, nightHoraList] #empty list for hora chart [[day hora], [night hora]]
 
-horaChart = document.getElementById('hora-chart')
+horaChart = [document.getElementById('day-hora-chart'), document.getElementById('night-hora-chart')]
 # messagebox = document.getElementById('message-box')
 
 #converting weekdays number into planetNames index
@@ -89,7 +88,7 @@ def submit_date(event):
         tt = firstSR
         for i in range(0,2):
             for j in range(0,12):
-                hc.append([j+1,planetNames[index],tt.time().isoformat(timespec='seconds'),(tt+td[i]).time().isoformat(timespec='seconds')])
+                hc[i].append([j+1,planetNames[index],tt.time().isoformat(timespec='seconds'),(tt+td[i]).time().isoformat(timespec='seconds')])
                 tt = td[i] + tt
                 index += 1
                 if(index == 7):
@@ -98,20 +97,27 @@ def submit_date(event):
         
 
         #print the hora chart
-        tbody = '<tbody>'
-        for index, i in enumerate(hc):
-            tr = f'''<tr>
-                <td>{i[0]}</td>
-                <td>{i[1][0]}</td>
-                <td>{i[2]}</td>
-                <td>{i[3]}</td>
-                </tr>
-            '''
-            tbody += tr
-        tbody += '</tbody>'
-        horaChart.insertAdjacentHTML( 'beforeend', tbody )
+        for j in range(0, 2):
+            tbody = '<tbody>'
+            for index, i in enumerate(hc[j]):
+                tr = f'''<tr>
+                    <td>{i[0]}</td>
+                    <td>{i[1][0]}</td>
+                    <td>{i[2]}</td>
+                    <td>{i[3]}</td>
+                    </tr>
+                '''
+                tbody += tr
+            tbody += '</tbody>'
+            horaChart[j].insertAdjacentHTML( 'beforeend', tbody )
 
 #clear the data of previous table
 def clear():
-    hc.clear()
-    horaChart.removeChild(document.querySelector('#hora-chart > tbody'))
+    for i in range(0, 2):
+        hc[i].clear()
+    print(hc)
+    horaChart[0].removeChild(document.querySelector('#day-hora-chart > tbody'))
+    horaChart[1].removeChild(document.querySelector('#night-hora-chart > tbody'))
+
+
+
