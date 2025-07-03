@@ -1,0 +1,8 @@
+# Python bytecode cache
+__pycache__/
+
+# Virtual environment folders
+lib/
+include/
+scripts/
+pyvenv.cfg
