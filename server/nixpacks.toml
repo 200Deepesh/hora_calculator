@@ -1,4 +1,4 @@
 # nixpacks.toml
 
 [start]
-cmd = "waitress-serve main:app"
+cmd = "gunicorn main:app"
